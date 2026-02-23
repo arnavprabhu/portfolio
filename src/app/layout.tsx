@@ -14,7 +14,12 @@ export const metadata: Metadata = {
   description:
     "Bridging finance and artificial intelligence to drive data-informed strategy and risk management.",
   icons: {
-    icon: "/aplogo.png",
+    icon: [
+      { url: "/aplogo.png", type: "image/png" },
+      { url: "/aplogo.png", sizes: "32x32", type: "image/png" },
+    ],
+    shortcut: "/aplogo.png",
+    apple: "/aplogo.png",
   },
 };
 
