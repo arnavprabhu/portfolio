@@ -12,6 +12,9 @@ export const metadata: Metadata = {
   title: "Arnav Prabhu | Finance, Business Analytics & AI",
   description:
     "Bridging finance and artificial intelligence to drive data-informed strategy and risk management.",
+  icons: {
+    icon: "/aplogo.png",
+  },
 };
 
 export default function RootLayout({
