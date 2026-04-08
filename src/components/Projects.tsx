@@ -7,8 +7,14 @@ const projects = [
   {
     name: "Axton",
     description:
-      "AI-powered SEC forms risk analysis presented in a minimalist research terminal. More features in active development.",
+      "AI-powered SEC filing intelligence platform with a RAG pipeline for 10-K, 10-Q, and 8-K filings. Built with Next.js, Supabase, and Gemini AI.",
     url: "https://axton.arnavprabhu.com",
+  },
+  {
+    name: "pi-swarm",
+    description:
+      "Multi-agent orchestration framework built on pi.dev. Organizes AI agents into a 3-tier company hierarchy with 21 specialist roles. Model-agnostic, real-time cost tracking, and a live terminal UI.",
+    url: "https://github.com/arnavprabhu/pi-swarm",
   },
 ];
 
