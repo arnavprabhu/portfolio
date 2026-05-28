@@ -1,32 +1,79 @@
-"use client";
+import { HAIRLINE_BORDER } from "@/lib/constants";
 
-import { motion } from "framer-motion";
+const skillTagsPrimary = [
+  "MACHINE LEARNING",
+  "NEURAL NETWORKS",
+  "RAG ARCHITECTURES",
+  "NATURAL LANGUAGE PROCESSING",
+];
 
-const bio =
-  "UT Dallas undergraduate pursuing dual B.S. degrees in Finance and Business Analytics & AI. Experienced in financial analysis, risk management, compliance, and data-driven strategy. Proficient in SQL, Python, Tableau, Power BI, and Excel. Currently seeking finance, management, or analytics roles to drive strategic, risk-aware, and operational performance.";
+const skillTagsSecondary = [
+  "FINANCIAL MODELING",
+  "RISK MANAGEMENT",
+  "QUANTITATIVE ANALYSIS",
+  "CORPORATE FINANCE",
+  "DERIVATIVES",
+  "PORTFOLIO MANAGEMENT",
+];
 
 export default function About() {
   return (
-    <section className="px-5 py-24 sm:px-8 md:px-12 lg:px-16">
-      <div className="mx-auto max-w-3xl">
-        <motion.h2
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
-          className="text-sm font-medium tracking-wide text-[#86868B]"
-        >
-          Background
-        </motion.h2>
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-60px" }}
-          transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
-          className="mt-8 text-base leading-relaxed text-[#F5F5F7] sm:text-lg"
-        >
-          {bio}
-        </motion.p>
+    <section
+      id="background"
+      className="node node-bl relative border-b-hairline py-section-gap"
+      style={{ borderColor: HAIRLINE_BORDER }}
+    >
+      <div className="draw-line absolute top-0 left-0 h-px w-full bg-outline-variant/30" />
+      <div className="grid grid-cols-4 gap-gutter md:grid-cols-12">
+        <div className="col-span-4 md:col-span-10 md:col-start-2">
+          <div className="scroll-reveal mb-16 border-l-4 border-mint-green py-2 pl-8">
+            <p className="font-headline-lg text-headline-lg leading-tight text-on-surface">
+              &ldquo;Looking for roles where finance and AI overlap.&rdquo;
+            </p>
+          </div>
+          <div
+            className="node node-tr relative grid grid-cols-1 gap-16 border-t-hairline pt-16 md:grid-cols-2"
+            style={{ borderColor: HAIRLINE_BORDER }}
+          >
+            <div className="draw-line absolute top-0 left-0 h-px w-full bg-outline-variant/30" />
+            <div className="scroll-reveal">
+              <h3 className="mb-6 border-b border-hairline pb-2 font-meta-technical text-meta-technical text-mint-green">
+                EDUCATION
+              </h3>
+              <p className="font-body-lg text-body-lg text-on-surface">
+                UT Dallas undergraduate pursuing dual B.S. degrees in Finance and
+                Business Analytics &amp; AI.
+              </p>
+            </div>
+            <div className="scroll-reveal">
+              <h3 className="mb-6 border-b border-hairline pb-2 font-meta-technical text-meta-technical text-mint-green">
+                EXPERTISE &amp; SKILLS
+              </h3>
+              <p className="mb-6 font-body-md text-body-md text-on-surface-variant">
+                Experienced in financial analysis, risk management, compliance,
+                and applying AI in finance.
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {skillTagsPrimary.map((tag) => (
+                  <span
+                    key={tag}
+                    className="project-tag accent-chip px-3 py-1 font-meta-technical text-meta-technical"
+                  >
+                    {tag}
+                  </span>
+                ))}
+                {skillTagsSecondary.map((tag) => (
+                  <span
+                    key={tag}
+                    className="project-tag border border-hairline-muted px-3 py-1 font-meta-technical text-meta-technical text-on-surface"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );

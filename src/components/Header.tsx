@@ -1,46 +1,48 @@
-"use client";
-
-import { Github, Linkedin } from "lucide-react";
-import { motion } from "framer-motion";
-
-const navLinks = [
-  { href: "https://github.com/arnavprabhu/", icon: Github, label: "GitHub" },
-  {
-    href: "https://www.linkedin.com/in/arnavprabhu/",
-    icon: Linkedin,
-    label: "LinkedIn",
-  },
-];
+import ThemeToggle from "@/components/ThemeToggle";
 
 export default function Header() {
   return (
-    <motion.header
-      initial={{ opacity: 0, y: -12 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, ease: "easeOut" }}
-      className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-5 py-5 sm:px-8 md:px-12 lg:px-16"
-    >
-      <button
-        type="button"
-        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-        className="text-sm font-medium text-[#F5F5F7] tracking-tight transition-opacity duration-200 hover:opacity-70"
-      >
-        Arnav Prabhu
-      </button>
-      <nav className="flex items-center gap-6" aria-label="Social links">
-        {navLinks.map(({ href, icon: Icon, label }) => (
-          <a
-            key={label}
-            href={href}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={label}
-            className="text-[#F5F5F7] transition-opacity duration-200 hover:opacity-70"
-          >
-            <Icon size={20} strokeWidth={1.5} />
-          </a>
-        ))}
-      </nav>
-    </motion.header>
+    <nav className="fixed top-0 z-50 flex h-20 w-full items-center justify-between border-b border-hairline bg-[var(--theme-nav-scrim)] px-margin-mobile backdrop-blur-[30px] md:px-margin-desktop">
+      <div className="flex items-center">
+        <a
+          className="font-display-hero-mobile text-[1.5rem] leading-none tracking-[-0.02em] text-on-surface focus:outline-none md:font-display-hero md:text-[1.75rem] md:tracking-[-0.04em]"
+          href="/"
+        >
+          <span>Arnav</span> <span>Prabhu</span>
+        </a>
+      </div>
+      <div className="hidden h-full items-center gap-8 border-l border-r border-hairline px-8 md:flex">
+        <a
+          className="nav-link font-meta-technical text-meta-technical text-on-surface-variant hover:text-mint-green"
+          href="/#work"
+        >
+          WORK
+        </a>
+        <a
+          className="nav-link font-meta-technical text-meta-technical text-on-surface-variant hover:text-mint-green"
+          href="/#background"
+        >
+          BACKGROUND
+        </a>
+        <a
+          className="nav-link font-meta-technical text-meta-technical text-on-surface-variant hover:text-mint-green"
+          href="/#contact"
+        >
+          CONTACT
+        </a>
+      </div>
+      <div className="flex items-center gap-3 md:gap-4">
+        <ThemeToggle />
+        <a
+          className="btn-fill-hover flex items-center gap-2 px-4 py-3 font-display-hero-mobile text-[1.5rem] leading-none tracking-[-0.02em] text-on-surface md:px-6 md:font-display-hero md:text-[1.75rem] md:tracking-[-0.04em]"
+          href="/#contact"
+        >
+          Let&apos;s Chat
+          <span className="material-symbols-outlined text-[16px]">
+            arrow_forward
+          </span>
+        </a>
+      </div>
+    </nav>
   );
 }

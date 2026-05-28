@@ -1,29 +1,20 @@
-"use client";
-
-import Image from "next/image";
-import { motion } from "framer-motion";
+import Link from "next/link";
 
 export default function Footer() {
-  const year = new Date().getFullYear();
-
   return (
-    <motion.footer
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5 }}
-      className="flex items-end justify-between px-5 py-12 sm:px-8 md:px-12 lg:px-16"
-    >
-      <Image
-        src="/aplogo.png"
-        alt="AP"
-        width={40}
-        height={40}
-        className="h-8 w-8 shrink-0 opacity-80 sm:h-10 sm:w-10"
-      />
-      <p className="text-sm text-[#86868B]">
-        © {year} Arnav Prabhu. All rights reserved.
-      </p>
-    </motion.footer>
+    <footer className="relative z-10 w-full border-t border-hairline bg-surface-dark px-margin-mobile py-8 md:px-margin-desktop">
+      <div className="draw-line absolute top-0 left-0 h-px w-full bg-outline-variant/30" />
+      <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+        <span className="font-meta-technical text-meta-technical text-on-surface-variant">
+          ©2026 ARNAV PRABHU
+        </span>
+        <Link
+          href="/privacy"
+          className="link-fill-hover font-meta-technical text-meta-technical text-on-surface-variant hover:text-mint-green"
+        >
+          Privacy Policy
+        </Link>
+      </div>
+    </footer>
   );
 }
