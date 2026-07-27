@@ -29,6 +29,20 @@ const projects = [
     linkLabel: "VIEW REPOSITORY",
     icon: "code",
   },
+  {
+    index: "03",
+    title: "Doxa",
+    description:
+      "AI-powered equity research pipeline that coordinates six specialized agents across market data, valuation, SEC filings, sentiment, writing, and editorial review to produce high-signal reports.",
+    tags: [
+      { label: "AI / ML", primary: true },
+      { label: "EQUITY RESEARCH", primary: false },
+      { label: "PYTHON", primary: false },
+    ],
+    href: "https://github.com/UnitedDiagram/Doxa",
+    linkLabel: "VIEW REPOSITORY",
+    icon: "code",
+  },
 ];
 
 export default function Projects() {
@@ -48,7 +62,7 @@ export default function Projects() {
             Selected Work
           </h2>
           <p className="scroll-reveal mt-4 font-meta-technical text-meta-technical text-mint-green">
-            [ 02_PROJECTS ]
+            [ 03_PROJECTS ]
           </p>
         </div>
         <div className="col-span-4 flex flex-col gap-16 md:col-span-9 md:pl-8">
