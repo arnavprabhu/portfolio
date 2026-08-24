@@ -29,6 +29,7 @@ const pixelifySans = Pixelify_Sans({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://arnavprabhu.com"),
   title: "Arnav Prabhu - Finance & AI",
   description:
     "Finance and AI. Strategy, risk, and building with models.",
@@ -43,6 +44,34 @@ export const metadata: Metadata = {
     shortcut: "/favicon.ico",
     apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
   },
+};
+
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Arnav Prabhu",
+  jobTitle: "Applied AI Engineer",
+  description:
+    "Applied AI builder and finance student at UT Dallas. Builds RAG pipelines, multi-agent systems, and LLM applications grounded in finance and risk.",
+  url: "https://arnavprabhu.com",
+  image: "https://arnavprabhu.com/icon.png",
+  sameAs: [
+    "https://github.com/arnavprabhu",
+    "https://www.linkedin.com/in/arnavprabhu/",
+  ],
+  alumniOf: {
+    "@type": "CollegeOrUniversity",
+    name: "The University of Texas at Dallas",
+  },
+  knowsAbout: [
+    "Retrieval-Augmented Generation (RAG)",
+    "Multi-Agent Systems",
+    "LLM Applications",
+    "Machine Learning",
+    "Financial Modeling",
+    "Quantitative Analysis",
+    "Risk Management",
+  ],
 };
 
 export default function RootLayout({
@@ -64,6 +93,10 @@ export default function RootLayout({
         />
       </head>
       <body className="relative bg-surface-dark antialiased">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+        />
         {children}
         <Analytics />
       </body>

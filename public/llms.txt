@@ -1,0 +1,25 @@
+# Arnav Prabhu
+
+> Applied AI builder and finance student at the University of Texas at Dallas. Builds and ships LLM systems — RAG pipelines, multi-agent orchestration, and AI products in finance.
+
+Arnav Prabhu is an undergraduate at UT Dallas pursuing dual B.S. degrees in Finance and Business Analytics & AI. He builds applied AI systems end-to-end: retrieval-augmented generation over unstructured documents, multi-agent orchestration frameworks, and agentic workflows, grounded in financial analysis, risk management, and quantitative methods.
+
+## Projects
+
+- **Axton** — AI-powered SEC filing intelligence platform with a RAG pipeline for 10-K, 10-Q, and 8-K filings. Built with Next.js, Supabase, and Gemini AI. https://axton.arnavprabhu.com
+- **pi-swarm** — Multi-agent orchestration framework built on pi.dev. Organizes AI agents into a 3-tier company hierarchy with 21 specialist roles. Model-agnostic with real-time cost tracking and a live terminal UI. https://github.com/arnavprabhu/pi-swarm
+- **Doxa** — AI-powered equity research pipeline coordinating six specialized agents across market data, valuation, SEC filings, sentiment, writing, and editorial review to produce high-signal reports. https://github.com/UnitedDiagram/Doxa
+
+## Expertise
+
+- LLM applications, RAG architectures, multi-agent systems, machine learning
+- Financial modeling, risk management, quantitative analysis, corporate finance
+
+## Education
+
+- University of Texas at Dallas — Dual B.S., Finance and Business Analytics & AI
+
+## Contact
+
+- LinkedIn: https://www.linkedin.com/in/arnavprabhu/
+- GitHub: https://github.com/arnavprabhu/

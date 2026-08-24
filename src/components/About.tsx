@@ -45,8 +45,11 @@ export default function About() {
                 EDUCATION
               </h3>
               <p className="font-body-lg text-body-lg text-on-surface">
-                UT Dallas undergraduate pursuing dual B.S. degrees in Finance and
-                Business Analytics &amp; AI.
+                Arnav Prabhu is a UT Dallas undergraduate pursuing dual B.S.
+                degrees in Finance and Business Analytics &amp; AI. He builds
+                and ships applied AI systems — RAG pipelines, multi-agent
+                frameworks, and LLM applications — with a foundation in
+                finance, risk, and quantitative methods.
               </p>
             </div>
             <div className="scroll-reveal">
