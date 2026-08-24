@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
+import AppliedAI from "@/components/AppliedAI";
 import Projects from "@/components/Projects";
 import About from "@/components/About";
 import Contact from "@/components/Contact";
@@ -20,6 +21,7 @@ export default function Home() {
         }}
       >
         <Hero />
+        <AppliedAI />
         <Projects />
         <About />
         <Contact />

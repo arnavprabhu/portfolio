@@ -31,7 +31,9 @@ export default function Hero() {
             className="reveal-text mb-8 font-display-hero-mobile text-display-hero-mobile text-on-surface md:font-display-hero md:text-display-hero"
             id="hero-title"
           >
-            <span>Arnav</span> <span>Prabhu</span>
+            <span>Arnav</span>{" "}
+            <span className="italic">Prabhu</span>
+            <span className="text-mint-green">.</span>
           </h1>
           <div className="node node-tr relative my-8 h-px w-full bg-outline-variant/30">
             <div className="draw-line h-full w-full bg-mint-green" />
@@ -39,7 +41,7 @@ export default function Hero() {
           <div className="scroll-reveal mt-12 grid grid-cols-1 gap-12 md:grid-cols-2">
             <div>
               <h2 className="mb-6 font-headline-md text-headline-md text-on-surface">
-                Finance &amp; AI.
+                Finance <span className="italic">&amp;</span> AI.
               </h2>
             </div>
             <div>

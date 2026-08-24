@@ -8,7 +8,7 @@ export default function Header() {
           className="font-display-hero-mobile text-[1.5rem] leading-none tracking-[-0.02em] text-on-surface focus:outline-none md:font-display-hero md:text-[1.75rem] md:tracking-[-0.04em]"
           href="/"
         >
-          <span>Arnav</span> <span>Prabhu</span>
+          <span>Arnav</span> <span className="italic">Prabhu</span>
         </a>
       </div>
       <div className="hidden h-full items-center gap-8 border-l border-r border-hairline px-8 md:flex">
@@ -17,6 +17,12 @@ export default function Header() {
           href="/#work"
         >
           WORK
+        </a>
+        <a
+          className="nav-link font-meta-technical text-meta-technical text-on-surface-variant hover:text-mint-green"
+          href="/#applied-ai"
+        >
+          APPLIED AI
         </a>
         <a
           className="nav-link font-meta-technical text-meta-technical text-on-surface-variant hover:text-mint-green"

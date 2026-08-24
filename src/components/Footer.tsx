@@ -8,12 +8,21 @@ export default function Footer() {
         <span className="font-meta-technical text-meta-technical text-on-surface-variant">
           ©2026 ARNAV PRABHU
         </span>
-        <Link
-          href="/privacy"
-          className="link-fill-hover font-meta-technical text-meta-technical text-on-surface-variant hover:text-mint-green"
-        >
-          Privacy Policy
-        </Link>
+        <div className="flex items-center gap-8">
+          <Link
+            href="/privacy"
+            className="link-fill-hover font-meta-technical text-meta-technical text-on-surface-variant hover:text-mint-green"
+          >
+            Privacy Policy
+          </Link>
+          <a
+            href="#"
+            className="flex items-center gap-2 font-meta-technical text-meta-technical text-on-surface-variant transition-colors hover:text-mint-green"
+          >
+            BACK TO TOP
+            <span className="material-symbols-outlined text-[14px]">north</span>
+          </a>
+        </div>
       </div>
     </footer>
   );

@@ -165,6 +165,11 @@ body {
   outline-offset: 4px;
 }
 
+::selection {
+  background-color: var(--theme-accent);
+  color: var(--theme-on-accent);
+}
+
 a:active,
 button:active {
   transform: scale(0.98);
@@ -299,6 +304,10 @@ button:active {
 
   .stagger-3 {
     transition-delay: 0.3s;
+  }
+
+  .stagger-4 {
+    transition-delay: 0.4s;
   }
 
   .draw-line {

@@ -20,15 +20,19 @@ export default function About() {
   return (
     <section
       id="background"
-      className="node node-bl relative border-b-hairline py-section-gap"
+      className="node node-bl relative border-b-hairline py-24 md:py-section-gap"
       style={{ borderColor: HAIRLINE_BORDER }}
     >
       <div className="draw-line absolute top-0 left-0 h-px w-full bg-outline-variant/30" />
       <div className="grid grid-cols-4 gap-gutter md:grid-cols-12">
         <div className="col-span-4 md:col-span-10 md:col-start-2">
+          <p className="scroll-reveal mb-8 font-meta-technical text-meta-technical text-mint-green">
+            [ 03_BACKGROUND ]
+          </p>
           <div className="scroll-reveal mb-16 border-l-4 border-mint-green py-2 pl-8">
             <p className="font-headline-lg text-headline-lg leading-tight text-on-surface">
-              &ldquo;Looking for roles where finance and AI overlap.&rdquo;
+              &ldquo;Looking for roles where{" "}
+              <span className="italic">finance and AI overlap</span>.&rdquo;
             </p>
           </div>
           <div

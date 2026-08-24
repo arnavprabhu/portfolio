@@ -49,7 +49,7 @@ export default function Projects() {
   return (
     <section
       id="work"
-      className="node node-br relative border-b-hairline py-section-gap"
+      className="node node-br relative border-b-hairline py-24 md:py-section-gap"
       style={{ borderColor: HAIRLINE_BORDER }}
     >
       <div className="draw-line absolute top-0 left-0 h-px w-full bg-outline-variant/30" />
@@ -62,16 +62,22 @@ export default function Projects() {
             Selected Work
           </h2>
           <p className="scroll-reveal mt-4 font-meta-technical text-meta-technical text-mint-green">
-            [ 03_PROJECTS ]
+            [ 02_PROJECTS ]
           </p>
         </div>
         <div className="col-span-4 flex flex-col gap-16 md:col-span-9 md:pl-8">
-          {projects.map((project) => (
+          {projects.map((project, i) => (
             <article
               key={project.title}
-              className="project-card spotlight-card scroll-reveal group relative border border-hairline bg-surface-dark p-8 md:p-12"
+              className={`project-card spotlight-card scroll-reveal ${i > 0 ? `stagger-${Math.min(i, 4)}` : ""} group relative border border-hairline bg-surface-dark p-8 md:p-12`}
               style={{ borderColor: HAIRLINE_BORDER }}
             >
+              <span
+                aria-hidden
+                className="pointer-events-none absolute right-6 bottom-2 z-0 font-display-hero text-[7rem] leading-none text-on-surface opacity-[0.04] transition-opacity duration-500 select-none group-hover:opacity-[0.09] md:text-[10rem]"
+              >
+                {project.index}
+              </span>
               <div className="absolute top-0 right-0 p-4">
                 <span className="font-meta-technical text-meta-technical text-on-surface-variant transition-colors group-hover:text-mint-green">
                   [ {project.index} ]
