@@ -7,6 +7,7 @@ import toIco from "to-ico";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const publicDir = path.join(__dirname, "..", "public");
+const assetsDir = path.join(__dirname, "..", "assets");
 
 const PAPER = "#ecebe7";
 // sRGB fallback for the site accent, oklch(0.57 0.2 32)
@@ -92,6 +93,10 @@ async function main() {
     pngBySize.set(size, png);
     console.log(`Wrote ${name} (${size}x${size})`);
   }
+
+  await fs.mkdir(assetsDir, { recursive: true });
+  await fs.writeFile(path.join(assetsDir, "logo.png"), await renderApIcon(1500));
+  console.log("Wrote assets/logo.png (1500x1500)");
 
   const ico = await toIco([pngBySize.get(16), pngBySize.get(32)]);
   await fs.writeFile(path.join(publicDir, "favicon.ico"), ico);
