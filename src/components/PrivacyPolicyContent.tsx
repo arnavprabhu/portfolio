@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const LAST_UPDATED = "May 27, 2026";
 
 type SectionProps = {
@@ -7,12 +9,19 @@ type SectionProps = {
 };
 
 function Section({ id, title, children }: SectionProps) {
+  const [number, ...rest] = title.split(". ");
   return (
-    <section id={id} className="scroll-reveal border-b-hairline pb-12">
-      <h2 className="mb-6 font-headline-md text-headline-md text-on-surface">
-        {title}
+    <section
+      id={id}
+      className="gutter flex flex-wrap gap-x-6 gap-y-4 border-t border-rule py-[clamp(32px,4vw,48px)]"
+    >
+      <h2 className="label m-0 flex-[1_1_200px]">
+        {number.padStart(2, "0")} — {rest.join(". ")}
       </h2>
-      <div className="space-y-4 font-body-md text-body-md text-on-surface-variant">
+      <div
+        data-reveal
+        className="flex-[3_1_560px] space-y-4 text-lg leading-[1.5] text-pretty"
+      >
         {children}
       </div>
     </section>
@@ -20,58 +29,62 @@ function Section({ id, title, children }: SectionProps) {
 }
 
 function P({ children }: { children: React.ReactNode }) {
-  return <p>{children}</p>;
+  return <p className="max-w-[68ch]">{children}</p>;
 }
 
 function Ul({ children }: { children: React.ReactNode }) {
-  return <ul className="list-disc space-y-2 pl-6">{children}</ul>;
+  return (
+    <ul className="max-w-[68ch] list-disc space-y-2 pl-6 marker:text-acc">
+      {children}
+    </ul>
+  );
 }
 
 export default function PrivacyPolicyContent() {
   return (
-    <article className="space-y-12">
-      <header className="scroll-reveal border-b-hairline pb-12">
-        <p className="font-meta-technical text-meta-technical text-mint-green">
-          [ LEGAL / PRIVACY ]
-        </p>
-        <h1 className="mt-4 font-headline-lg text-headline-lg text-on-surface">
-          Privacy Policy
+    <article>
+      <header className="gutter border-t-2 border-rule pt-[clamp(24px,4vw,40px)] pb-[clamp(40px,6vw,64px)]">
+        <h1 className="display m-0 text-[clamp(72px,17vw,240px)] leading-[.8] tracking-[-.03em]">
+          Privacy<span className="text-acc">.</span>
         </h1>
-        <p className="mt-6 max-w-3xl font-body-lg text-body-lg text-on-surface-variant">
-          This policy describes how Arnav Prabhu (&ldquo;we,&rdquo;
-          &ldquo;us,&rdquo; or &ldquo;our&rdquo;) handles information when you
-          visit this portfolio website. It is written to meet common transparency
-          expectations under the EU General Data Protection Regulation (GDPR),
-          UK GDPR, California Consumer Privacy Act as amended by the California
-          Privacy Rights Act (CCPA/CPRA), the U.S. Children&apos;s Online Privacy
-          Protection Act (COPPA), and leading Asia-Pacific frameworks including
-          Japan&apos;s APPI, South Korea&apos;s PIPA, Singapore&apos;s PDPA, and
-          comparable notice requirements elsewhere.
-        </p>
-        <p className="mt-4 font-meta-technical text-meta-technical text-on-surface-variant">
-          Last updated: {LAST_UPDATED}
-        </p>
-        <p className="mt-6 max-w-3xl font-body-md text-body-md text-on-surface-variant/80">
-          This document is provided for transparency and is not legal advice. If
-          you need advice about your specific situation, consult a qualified
-          attorney in your jurisdiction.
-        </p>
+        <div className="mt-[clamp(32px,5vw,56px)] flex flex-wrap items-start gap-6">
+          <p className="m-0 flex-[2_1_420px] text-[clamp(20px,2vw,26px)] leading-[1.3] font-medium tracking-[-.01em] text-pretty">
+            This policy describes how Arnav Prabhu (&ldquo;we,&rdquo;
+            &ldquo;us,&rdquo; or &ldquo;our&rdquo;) handles information when
+            you visit this portfolio website. It is written to meet common
+            transparency expectations under the EU General Data Protection
+            Regulation (GDPR), UK GDPR, California Consumer Privacy Act as
+            amended by the California Privacy Rights Act (CCPA/CPRA), the U.S.
+            Children&apos;s Online Privacy Protection Act (COPPA), and leading
+            Asia-Pacific frameworks including Japan&apos;s APPI, South
+            Korea&apos;s PIPA, Singapore&apos;s PDPA, and comparable notice
+            requirements elsewhere.
+          </p>
+          <div className="flex-[1_1_220px]">
+            <p className="label m-0">Last updated: {LAST_UPDATED}</p>
+            <p className="mt-4 mb-0 text-base leading-[1.45] text-mute">
+              This document is provided for transparency and is not legal
+              advice. If you need advice about your specific situation, consult
+              a qualified attorney in your jurisdiction.
+            </p>
+          </div>
+        </div>
       </header>
 
       <Section id="controller" title="1. Who we are">
         <P>
-          <strong className="text-on-surface">Data controller:</strong> Arnav
+          <strong>Data controller:</strong> Arnav
           Prabhu (individual operator of this personal portfolio site).
         </P>
         <P>
-          <strong className="text-on-surface">Contact:</strong> To exercise
+          <strong>Contact:</strong> To exercise
           privacy rights or ask questions about this policy, reach out via the{" "}
-          <a
-            className="link-fill-hover text-mint-green underline-offset-4 hover:underline"
+          <Link
+            className="text-acc underline underline-offset-4"
             href="/#contact"
           >
             Contact
-          </a>{" "}
+          </Link>{" "}
           section on the homepage (LinkedIn or GitHub).
         </P>
       </Section>
@@ -89,7 +102,7 @@ export default function PrivacyPolicyContent() {
         <P>
           We designed this site to collect only limited, aggregated usage
           information to understand how the portfolio is used. We do{" "}
-          <strong className="text-on-surface">not</strong> intentionally collect
+          <strong>not</strong> intentionally collect
           your name, email address, postal address, phone number, government ID,
           payment details, precise geolocation, browsing history across other
           sites, or other profile information through this website.
@@ -100,17 +113,17 @@ export default function PrivacyPolicyContent() {
         </P>
         <Ul>
           <li>
-            <strong className="text-on-surface">Visitor counts</strong> —
+            <strong>Visitor counts</strong> —
             aggregated numbers of visits and page views, not individualized
             profiles for advertising.
           </li>
           <li>
-            <strong className="text-on-surface">Operating system</strong> —
+            <strong>Operating system</strong> —
             general device/OS category (for example, Windows, macOS, iOS,
             Android) to understand technical compatibility.
           </li>
           <li>
-            <strong className="text-on-surface">Country</strong> — country or
+            <strong>Country</strong> — country or
             region inferred from network connection (for example, via IP
             geolocation at country level) to understand geographic reach.
           </li>
@@ -140,9 +153,9 @@ export default function PrivacyPolicyContent() {
           <li>Understand broad geographic and platform distribution of visitors.</li>
         </Ul>
         <P>
-          <strong className="text-on-surface">Legal bases (EEA/UK):</strong> Where
+          <strong>Legal bases (EEA/UK):</strong> Where
           GDPR or UK GDPR applies, we rely on{" "}
-          <strong className="text-on-surface">legitimate interests</strong> (Article
+          <strong>legitimate interests</strong> (Article
           6(1)(f)) in operating and securing a low-risk personal portfolio with
           minimal analytics, balanced against your rights. Where local law
           requires consent for non-essential analytics, you may disable
@@ -166,7 +179,7 @@ export default function PrivacyPolicyContent() {
 
       <Section id="sharing" title="7. Service providers and transfers">
         <P>
-          We use <strong className="text-on-surface">Vercel, Inc.</strong> to
+          We use <strong>Vercel, Inc.</strong> to
           host this website and provide Web Analytics. Vercel may process data in
           the United States and other countries. Where required, transfers rely
           on appropriate safeguards (such as Standard Contractual Clauses or
@@ -204,12 +217,12 @@ export default function PrivacyPolicyContent() {
         </P>
         <P>
           To make a request, contact us via the{" "}
-          <a
-            className="link-fill-hover text-mint-green underline-offset-4 hover:underline"
+          <Link
+            className="text-acc underline underline-offset-4"
             href="/#contact"
           >
             Contact
-          </a>{" "}
+          </Link>{" "}
           section. We will respond within timeframes required by applicable law
           (often within one month under GDPR).
         </P>
@@ -219,7 +232,7 @@ export default function PrivacyPolicyContent() {
         <P>
           If you are a California resident, you may have rights to know, access,
           delete, and correct personal information, and to opt out of sale or
-          sharing. <strong className="text-on-surface">We do not sell or share</strong>{" "}
+          sharing. <strong>We do not sell or share</strong>{" "}
           personal information as those terms are defined under California law.
         </P>
         <P>
@@ -233,12 +246,12 @@ export default function PrivacyPolicyContent() {
           thresholds (for example, annual revenue, volume of California
           consumers, or revenue from selling data). We provide these disclosures
           voluntarily for transparency. To exercise rights, contact us via{" "}
-          <a
-            className="link-fill-hover text-mint-green underline-offset-4 hover:underline"
+          <Link
+            className="text-acc underline underline-offset-4"
             href="/#contact"
           >
             Contact
-          </a>
+          </Link>
           .
         </P>
         <P>
@@ -249,19 +262,19 @@ export default function PrivacyPolicyContent() {
       <Section id="coppa" title="12. Children (COPPA)">
         <P>
           This website is a general-audience professional portfolio and is{" "}
-          <strong className="text-on-surface">not directed to children</strong>{" "}
+          <strong>not directed to children</strong>{" "}
           under 13 years of age. We do not knowingly collect personal information
           from children under 13.
         </P>
         <P>
           If you are a parent or guardian and believe your child under 13 has
           provided personal information to us, contact us promptly via{" "}
-          <a
-            className="link-fill-hover text-mint-green underline-offset-4 hover:underline"
+          <Link
+            className="text-acc underline underline-offset-4"
             href="/#contact"
           >
             Contact
-          </a>
+          </Link>
           . We will take steps to delete such information where required.
         </P>
       </Section>
@@ -275,17 +288,17 @@ export default function PrivacyPolicyContent() {
         </P>
         <Ul>
           <li>
-            <strong className="text-on-surface">Japan (APPI):</strong> We specify
+            <strong>Japan (APPI):</strong> We specify
             purposes of use in this policy and limit collection to what is
             described above.
           </li>
           <li>
-            <strong className="text-on-surface">South Korea (PIPA):</strong> We
+            <strong>South Korea (PIPA):</strong> We
             collect minimal data for stated purposes and honor requests to
             access or delete where applicable.
           </li>
           <li>
-            <strong className="text-on-surface">Singapore (PDPA):</strong> We
+            <strong>Singapore (PDPA):</strong> We
             collect data only with appropriate notice and for reasonable purposes
             aligned with this policy.
           </li>
@@ -304,15 +317,15 @@ export default function PrivacyPolicyContent() {
         </P>
       </Section>
 
-      <Section id="contact" title="15. Contact">
+      <Section id="privacy-contact" title="15. Contact">
         <P>
           Questions about this Privacy Policy or your data: use the{" "}
-          <a
-            className="link-fill-hover text-mint-green underline-offset-4 hover:underline"
+          <Link
+            className="text-acc underline underline-offset-4"
             href="/#contact"
           >
             Contact
-          </a>{" "}
+          </Link>{" "}
           links on the homepage.
         </P>
       </Section>

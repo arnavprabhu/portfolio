@@ -1,170 +1,124 @@
 ---
-name: Monolith Precision
+name: Finance & AI (Swiss Poster)
+source: claude.ai/design — "Arnav Prabhu Portfolio.dc.html"
 colors:
-  surface: '#111415'
-  surface-dim: '#111415'
-  surface-bright: '#37393b'
-  surface-container-lowest: '#0c0e10'
-  surface-container-low: '#1a1c1d'
-  surface-container: '#1e2021'
-  surface-container-high: '#282a2c'
-  surface-container-highest: '#333537'
-  on-surface: '#e2e2e4'
-  on-surface-variant: '#cfc4c5'
-  inverse-surface: '#e2e2e4'
-  inverse-on-surface: '#2f3132'
-  outline: '#988e90'
-  outline-variant: '#4c4546'
-  surface-tint: '#c6c6c6'
-  primary: '#c6c6c6'
-  on-primary: '#303030'
-  primary-container: '#000000'
-  on-primary-container: '#757575'
-  inverse-primary: '#5e5e5e'
-  secondary: '#c6c6c7'
-  on-secondary: '#2f3131'
-  secondary-container: '#454747'
-  on-secondary-container: '#b4b5b5'
-  tertiary: '#98d59f'
-  on-tertiary: '#003916'
-  tertiary-container: '#000000'
-  on-tertiary-container: '#488153'
-  error: '#ffb4ab'
-  on-error: '#690005'
-  error-container: '#93000a'
-  on-error-container: '#ffdad6'
-  primary-fixed: '#e2e2e2'
-  primary-fixed-dim: '#c6c6c6'
-  on-primary-fixed: '#1b1b1b'
-  on-primary-fixed-variant: '#474747'
-  secondary-fixed: '#e2e2e2'
-  secondary-fixed-dim: '#c6c6c7'
-  on-secondary-fixed: '#1a1c1c'
-  on-secondary-fixed-variant: '#454747'
-  tertiary-fixed: '#b3f1b9'
-  tertiary-fixed-dim: '#98d59f'
-  on-tertiary-fixed: '#00210a'
-  on-tertiary-fixed-variant: '#175128'
-  background: '#111415'
-  on-background: '#e2e2e4'
-  surface-variant: '#333537'
-  mint-green: '#ADEBB3'
-  gray-muted: '#86868B'
-  surface-dark: '#0A0A0A'
-  light-background: '#F5F5F7'
-  light-surface: '#FFFFFF'
-  light-on-surface: '#1A1A1A'
+  light:
+    bg: '#ecebe7'
+    ink: '#0e0e0e'
+    mute: '#5f5f5b'
+    rule: '#0e0e0e'
+    accent: 'oklch(0.57 0.2 32)'
+  dark:
+    bg: '#0e0e0e'
+    ink: '#ecebe7'
+    mute: '#8d8d88'
+    rule: '#ecebe7'
+    accent: 'oklch(0.7 0.19 32)'
+  on-accent: '#ffffff'
 typography:
+  family: Archivo (variable, wdth + wght axes)
   display-hero:
-    fontFamily: Instrument Serif
-    fontSize: 96px
-    fontWeight: '400'
-    lineHeight: '1.0'
-    letterSpacing: -0.04em
-  display-hero-mobile:
-    fontFamily: Instrument Serif
-    fontSize: 56px
-    fontWeight: '400'
-    lineHeight: '1.0'
+    fontSize: clamp(84px, 22.5vw, 300px)
+    fontWeight: '900'
+    fontStretch: 72%
+    lineHeight: '0.8'
+    letterSpacing: -0.03em
+    textTransform: uppercase
+  display-project:
+    fontSize: clamp(64px, 12.5vw, 160px)
+    fontWeight: '900'
+    fontStretch: 72%
+    lineHeight: '0.85'
     letterSpacing: -0.02em
-  headline-lg:
-    fontFamily: Instrument Serif
-    fontSize: 48px
-    fontWeight: '400'
-    lineHeight: '1.1'
-  headline-md:
-    fontFamily: Instrument Serif
-    fontSize: 32px
-    fontWeight: '400'
-    lineHeight: '1.2'
-  body-lg:
-    fontFamily: Roboto Serif
+    textTransform: uppercase
+  display-contact:
+    fontSize: clamp(56px, 10.5vw, 132px)
+    fontWeight: '900'
+    fontStretch: 72%
+    lineHeight: '1.05'
+    textTransform: uppercase
+  display-number:
+    fontSize: clamp(88px, 9vw, 120px)
+    fontWeight: '900'
+    fontStretch: 72%
+    lineHeight: '0.9'
+  heading-group:
+    fontSize: clamp(44px, 4.5vw, 56px)
+    fontWeight: '800'
+    fontStretch: 80%
+    lineHeight: '1'
+    textTransform: uppercase
+  lead:
+    fontSize: clamp(24px, 3.2vw, 42px)
+    fontWeight: '500'
+    lineHeight: '1.15'
+    letterSpacing: -0.015em
+  body:
     fontSize: 18px
-    fontWeight: '300'
-    lineHeight: '1.6'
-  body-md:
-    fontFamily: Roboto Serif
-    fontSize: 16px
-    fontWeight: '300'
-    lineHeight: '1.6'
-  meta-technical:
-    fontFamily: Pixelify Sans
-    fontSize: 12px
     fontWeight: '400'
-    lineHeight: '1.0'
-    letterSpacing: 0.1em
-  label-caps:
-    fontFamily: Roboto Serif
-    fontSize: 11px
+    lineHeight: '1.4–1.7'
+  label:
+    fontSize: 14px
+    fontWeight: '700'
+    textTransform: uppercase
+  nav:
+    fontSize: 14px
     fontWeight: '600'
-    lineHeight: '1.0'
-    letterSpacing: 0.2em
+    letterSpacing: 0.02em
+    textTransform: uppercase
 spacing:
-  unit: 4px
-  gutter: 1px
-  margin-desktop: 80px
-  margin-mobile: 24px
-  section-gap: 160px
+  gutter: clamp(20px, 4vw, 48px)
+  section-y: clamp(40px, 6vw, 64px)
+  rule-major: 2px
+  rule-minor: 1px
 ---
 
 ## Brand & Style
-This design system embodies the intersection of high-stakes finance, artificial intelligence, and architectural strategy. It is built for a personal brand that demands the same rigor and aesthetic precision as a BMW Individual specification: high-performance, exclusive, and engineered to the millimeter.
-
-The visual style is **Cinematic Minimalism**. It avoids the soft, friendly tropes of modern SaaS in favor of a sharp, authoritative, and slightly experimental "editorial" look. The aesthetic relies on extreme negative space, sophisticated serif pairings, and a strict adherence to 1px geometric structures. The goal is to evoke an emotional response of calculated intelligence and quiet luxury—where every pixel is intentional and every interaction feels like a deliberate movement in a high-end physical space.
+A Swiss / International-style poster. The page is one tall sheet of warm paper, cut into bands by heavy black rules. Headlines are huge, condensed and uppercase, and set tight enough that the words read as blocks of ink. A single red accent carries meaning: the ampersand in "Finance & AI", the "Open to roles" chip, the numbers, and the hovered project. There are no cards, shadows, gradients, icons or rounded corners.
 
 ## Colors
-The palette is rooted in a "void and light" philosophy. The primary environment is a deep, absolute black (`#000000`), providing a cinematic backdrop that allows content to emerge with high contrast.
+Four neutrals and one accent. The accent is defined in `oklch` so it keeps the same perceived hue in both themes.
 
-### Light and dark mode
-Two theme layers share the same structure (hairlines, mint accent, sharp corners); only tonal tokens change.
-
-| Token | Dark (default) | Light |
+| Token | Light (default) | Dark |
 | --- | --- | --- |
-| Background | `#111415` | `#E8E8EC` |
-| Surface / footer / nav | `#0A0A0A` | `#F3F3F6` |
-| Primary text | `#E2E2E4` | `#2F3132` |
-| Secondary text | `#B8B4B5` | `#5C5F63` |
-| Hairlines | `rgba(255,255,255,0.1)` | `rgba(47,49,50,0.12)` |
-| Accent (labels, links) | `#ADEBB3` | `#2A6B3C` |
-| Accent fill (hovers, chips) | `#ADEBB3` | `#3D8A52` |
+| `--bg` | `#ECEBE7` | `#0E0E0E` |
+| `--ink` | `#0E0E0E` | `#ECEBE7` |
+| `--mute` | `#5F5F5B` | `#8D8D88` |
+| `--rule` | `#0E0E0E` | `#ECEBE7` |
+| `--acc` | `oklch(0.57 0.2 32)` | `oklch(0.7 0.19 32)` |
 
-- **Default:** Dark mode (brand cinematic look). Preference is stored in `localStorage` under `theme`.
-- **Toggle:** Fixed in the header — square control, 1px border, Material icon (`light_mode` / `dark_mode`), mint on hover. No border radius.
-- **Implementation:** Dark tokens live on `:root` (default). Light mode adds a `light` class on `<html>`. CSS variables (`--theme-*`) drive Tailwind semantic colors. A blocking script in the document head applies any saved preference before paint. 
-
-The primary accent is **BMW Individual W97 Mint Green**, used sparingly to highlight data points, strategic insights, and interactive nodes. This specific green provides a technical, "night-vision" precision that feels more premium than standard neons. White (`#FFFFFF`) and an off-white neutral (`#F5F5F7`) are used for primary and secondary text respectively, ensuring clarity and an expensive, "unprinted" editorial feel.
+- Text on the accent is always white (`--on-acc`).
+- `--mute` is for secondary information: the nav meta, the "Also" skill group, proof lines and the footer row.
+- **Theme:** light is the default. The toggle sets `data-theme="dark"` on `<html>`, and the choice is stored in `localStorage` under `theme`. A `beforeInteractive` script applies it before paint. Tailwind colors (`bg`, `ink`, `mute`, `rule`, `acc`, `on-acc`) map to these variables in `globals.css`.
 
 ## Typography
-The typographic hierarchy creates a tension between the classic and the futuristic. 
+One family: **Archivo**, loaded via `next/font` with the `wdth` axis.
 
-**Instrument Serif** is the voice of the brand—used for large-scale headlines and hero statements. It should be typeset with tight tracking to emphasize its elegant, vertical forms. 
-
-**Roboto Serif** provides a grounded, analytical readability for body copy, mimicking high-end financial journals. 
-
-**Pixelify Sans** acts as the "technical layer," used exclusively for micro-metadata, section numbering (e.g., 01, 02), and AI-generated status tags. This creates a subtle "glitch in the luxury" feel, signaling the brand's technological edge.
+- **Display** (`.display`): weight 900 at 72% width, uppercase, with line-height below 1. It's used for the hero, project names, contact links, the Applied AI numbers and page titles such as "PRIVACY.".
+- **Group headings**: weight 800 at 80% width. Slightly wider, so they sit below display in the hierarchy.
+- **Lead**: weight 500, fluid 24–42px, slightly negative tracking. It's used for the About statement and the hero tagline.
+- **Label** (`.label`): 14px, weight 700, uppercase. This is every section name ("About", "Skills", "01 — RAG Systems").
+- **Body**: 16–20px regular.
 
 ## Layout & Spacing
-The layout follows an **Architectural Fixed Grid**. Content is housed within a 12-column grid system where the gutters are not empty space, but visible **1px fine lines** (Hairlines) in `rgba(255, 255, 255, 0.1)`. 
+- Horizontal padding is a single fluid gutter (`.gutter`, `clamp(20px, 4vw, 48px)`). There's no max-width: bands run edge to edge.
+- Each major section is a `.section`: a 2px `--rule` top border plus `clamp(40px, 6vw, 64px)` vertical padding.
+- **Label + content row:** a `flex-wrap` row with the label at `flex: 1 1 200px` and the content at `flex: 3 1 560px`. On narrow screens it collapses to a stack with no breakpoints. Used by About, Skills and every privacy-policy section.
+- Grids use `repeat(auto-fit, minmax(min(100%, 200–220px), 1fr))`.
+- 1px rules divide items inside a section: project rows, Applied AI columns, contact links and privacy sections.
 
-Vertical spacing is aggressive, using a "Less is More" philosophy to create focus. Sections should be separated by large gaps (`160px+`) to allow each concept to breathe. Content reflow for mobile should maintain the 1px border philosophy, converting the multi-column desktop grid into a single-column stack defined by horizontal hair-lines. All elements should align to a strict 4px baseline grid to ensure mathematical precision.
-
-## Elevation & Depth
-In this system, depth is achieved through **Tonal Layering** and **Transparency**, never through shadows.
-
-- **The Base:** Absolute black (`#000000`).
-- **The Surface:** A slightly elevated dark gray (`#0A0A0A`) for container-like areas, separated only by 1px borders.
-- **Glassmorphism:** Used for navigation bars and overlays. Use a high-density backdrop blur (30px) with a very low opacity white tint (3%) to simulate expensive smoked glass.
-- **Fine Lines:** Depth is signaled by the intersection of 1px lines. Where lines cross, a small 4x4px "Mint Green" pixel may be placed to indicate a structural node or interactive anchor.
-
-## Shapes
-Shapes are strictly **Sharp (0px)**. To maintain the BMW-inspired precision and architectural feel, avoid all rounded corners. Rectangular containers, buttons, and image masks must have crisp 90-degree angles. This reinforces a sense of rigid, engineered structure and differentiates the UI from the "bubble-like" aesthetics of consumer apps.
+## Motion
+- **Reveal:** below-the-fold `[data-reveal]` elements start at `opacity: 0; translateY(24px)` and ease in over 0.8s (`cubic-bezier(.2,.7,.2,1)`) when they enter the viewport. Content already on screen at load is never hidden.
+- **Project hover:** the row fills with `--acc`, the text turns white (0.25s), and the description, detail and stack expand. On touch devices every row stays expanded.
+- **Links** dim to 75% opacity on hover.
+- **The "Open to roles" dot** pulses a white ring every 1.8s.
+- **Reduced motion** disables the reveal, the pulse and smooth scrolling.
 
 ## Components
-- **Buttons:** Rectangular with a 1px white border. On hover, the background fills with Mint Green (`#ADEBB3`) and the text flips to Black. No transition easing—interaction should be instantaneous and "mechanical."
-- **Input Fields:** A single 1px line at the bottom. The label sits above in `Pixelify Sans`. When active, the bottom line turns Mint Green.
-- **Cards:** Defined by 1px borders on all sides. Do not use background fills unless highlighting a specific "Active" state. The card title should use `Instrument Serif` and the metadata should use `Pixelify Sans` in the top-right corner.
-- **Chips/Status:** Small rectangular boxes with `Pixelify Sans` text. Use Mint Green text on a black background to indicate "Live" or "AI-Processed" data.
-- **Data Visualizations:** Use 1px line charts. Points of interest should be marked with a single Mint Green pixel. No fills under the lines; keep the aesthetic skeletal and precise.
-- **Navigation:** A fixed top bar with a 30px backdrop blur and a 1px bottom border. Links are in `Roboto Serif` (caps), turning to Mint Green on hover. Include the **theme toggle** to the left of the primary CTA.
-- **Theme toggle:** 48×48px, `Pixelify Sans` optional label omitted (icon-only). Border uses hairline token; hover border/text mint. Instant mechanical feedback (`scale(0.98)` on press).
-- **Legal pages:** Use the same grid, hairlines, and typography as content sections (`Instrument Serif` headings, `Roboto Serif` body, `Pixelify Sans` meta labels). Footer includes a conspicuous **Privacy Policy** link (`/privacy`).
+- **Nav:** three clusters in a wrapping flex row: name, mute meta ("Finance / Analytics & AI", "UT Dallas"), then the links and theme toggle. The toggle is a solid ink block with bg-colored text ("☾ Dark" / "☀ Light").
+- **Status chip:** accent fill, white 14px bold text with 0.06em tracking, and a pulsing white dot.
+- **Project row:** a full-width link with the name in display type on the left and "NN — Skill" as a label on the right, aligned to the baseline.
+- **Numbered capability:** 1px top rule, an accent display numeral, a 22px bold title, and a mute proof line.
+- **Contact link:** a display-size word with an accent `↗` on the right, above a 1px bottom rule.
+- **Footer row:** 13px, weight 600, uppercase, mute, spread with `justify-content: space-between`. It includes the Privacy link.
+- **Favicon:** white "AP" in Archivo 900 on the accent (`#D33318`), generated by `npm run generate:favicons`.

@@ -8,9 +8,13 @@ import toIco from "to-ico";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const publicDir = path.join(__dirname, "..", "public");
 
-async function loadInstrumentSerif() {
+const PAPER = "#ecebe7";
+// sRGB fallback for the site accent, oklch(0.57 0.2 32)
+const ACCENT = "#d33318";
+
+async function loadArchivoBlack() {
   const css = await fetch(
-    "https://fonts.googleapis.com/css2?family=Instrument+Serif&display=swap",
+    "https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@72,900&display=swap",
   ).then((res) => res.text());
 
   const match = css.match(
@@ -18,18 +22,18 @@ async function loadInstrumentSerif() {
   );
 
   if (!match?.[1]) {
-    throw new Error("Failed to resolve Instrument Serif font URL");
+    throw new Error("Failed to resolve Archivo font URL");
   }
 
   return fetch(match[1]).then((res) => {
-    if (!res.ok) throw new Error("Failed to fetch Instrument Serif");
+    if (!res.ok) throw new Error("Failed to fetch Archivo");
     return res.arrayBuffer();
   });
 }
 
 async function renderApIcon(size) {
-  const fontData = await loadInstrumentSerif();
-  const fontSize = Math.round(size * 0.62);
+  const fontData = await loadArchivoBlack();
+  const fontSize = Math.round(size * 0.72);
 
   const svg = await satori(
     {
@@ -41,11 +45,11 @@ async function renderApIcon(size) {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          backgroundColor: "#0a0a0a",
-          color: "#e2e2e4",
+          backgroundColor: ACCENT,
+          color: "#fff",
           fontSize,
-          fontFamily: "Instrument Serif",
-          letterSpacing: size >= 64 ? "-0.04em" : "-0.02em",
+          fontFamily: "Archivo",
+          letterSpacing: "-0.03em",
         },
         children: "AP",
       },
@@ -55,9 +59,9 @@ async function renderApIcon(size) {
       height: size,
       fonts: [
         {
-          name: "Instrument Serif",
+          name: "Archivo",
           data: fontData,
-          weight: 400,
+          weight: 900,
           style: "normal",
         },
       ],
@@ -108,8 +112,8 @@ async function main() {
         type: "image/png",
       },
     ],
-    theme_color: "#0a0a0a",
-    background_color: "#0a0a0a",
+    theme_color: PAPER,
+    background_color: PAPER,
     display: "standalone",
   };
 

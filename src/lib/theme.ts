@@ -7,7 +7,7 @@ export function isTheme(value: string | null): value is Theme {
 }
 
 export function applyTheme(theme: Theme) {
-  document.documentElement.classList.toggle("light", theme === "light");
+  document.documentElement.dataset.theme = theme;
 }
 
 export function readStoredTheme(): Theme | null {
@@ -29,5 +29,5 @@ export function persistTheme(theme: Theme) {
 }
 
 export function getAppliedTheme(): Theme {
-  return document.documentElement.classList.contains("light") ? "light" : "dark";
+  return document.documentElement.dataset.theme === "dark" ? "dark" : "light";
 }

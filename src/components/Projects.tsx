@@ -1,125 +1,101 @@
-import { HAIRLINE_BORDER } from "@/lib/constants";
+"use client";
+
+import { useState, useSyncExternalStore } from "react";
 
 const projects = [
   {
-    index: "01",
-    title: "Axton",
-    description:
-      "AI-powered SEC filing intelligence platform with a RAG pipeline for 10-K, 10-Q, and 8-K filings. Built with Next.js, Supabase, and Gemini AI.",
-    tags: [
-      { label: "AI / ML", primary: true },
-      { label: "RAG PIPELINE", primary: false },
-      { label: "FINANCE", primary: false },
-    ],
+    no: "01",
+    name: "Axton",
+    skill: "RAG Systems",
     href: "https://axton.arnavprabhu.com",
-    linkLabel: "VIEW PLATFORM",
-    icon: "arrow_outward",
+    desc: "A platform for analyzing SEC filings with AI. It uses a RAG pipeline to answer questions about 10-K, 10-Q and 8-K filings.",
+    detail: "Live at axton.arnavprabhu.com",
+    stack: ["Next.js", "Supabase", "Gemini"],
   },
   {
-    index: "02",
-    title: "pi-swarm",
-    description:
-      "Multi-agent orchestration framework built on pi.dev. Organizes AI agents into a 3-tier company hierarchy with 21 specialist roles. Model-agnostic, real-time cost tracking, and a live terminal UI.",
-    tags: [
-      { label: "SYSTEM ARCHITECTURE", primary: true },
-      { label: "ORCHESTRATION", primary: false },
-      { label: "PYTHON", primary: false },
-    ],
+    no: "02",
+    name: "pi-swarm",
+    skill: "Multi-Agent Orchestration",
     href: "https://github.com/arnavprabhu/pi-swarm",
-    linkLabel: "VIEW REPOSITORY",
-    icon: "code",
+    desc: "A framework for coordinating many AI agents, built on pi.dev. The agents are organized like a three-level company with 21 specialist roles.",
+    detail: "Works with any model, tracks cost in real time, has a live terminal UI.",
+    stack: ["Python"],
   },
   {
-    index: "03",
-    title: "Doxa",
-    description:
-      "AI-powered equity research pipeline that coordinates six specialized agents across market data, valuation, SEC filings, sentiment, writing, and editorial review to produce high-signal reports.",
-    tags: [
-      { label: "AI / ML", primary: true },
-      { label: "EQUITY RESEARCH", primary: false },
-      { label: "PYTHON", primary: false },
-    ],
+    no: "03",
+    name: "Doxa",
+    skill: "Agentic Workflows",
     href: "https://github.com/UnitedDiagram/Doxa",
-    linkLabel: "VIEW REPOSITORY",
-    icon: "code",
+    desc: "A pipeline that writes equity research reports. Six specialist agents handle market data, valuation, SEC filings, sentiment, writing and editorial review.",
+    detail: "",
+    stack: ["Python"],
   },
 ];
 
+const TOUCH_QUERY = "(hover: none)";
+
+function subscribeTouch(onChange: () => void) {
+  const mql = window.matchMedia(TOUCH_QUERY);
+  mql.addEventListener("change", onChange);
+  return () => mql.removeEventListener("change", onChange);
+}
+
 export default function Projects() {
+  const [hover, setHover] = useState<number | null>(null);
+  // Touch devices can't hover, so every project stays expanded there.
+  const touch = useSyncExternalStore(
+    subscribeTouch,
+    () => window.matchMedia(TOUCH_QUERY).matches,
+    () => false,
+  );
+
   return (
     <section
       id="work"
-      className="node node-br relative border-b-hairline py-24 md:py-section-gap"
-      style={{ borderColor: HAIRLINE_BORDER }}
+      className="border-t-2 border-rule"
+      onMouseLeave={() => setHover(null)}
     >
-      <div className="draw-line absolute top-0 left-0 h-px w-full bg-outline-variant/30" />
-      <div className="grid grid-cols-4 gap-gutter md:grid-cols-12">
-        <div
-          className="node node-tr col-span-4 border-b-hairline pb-8 md:col-span-3 md:border-r-hairline md:border-b-0 md:pr-8"
-          style={{ borderColor: HAIRLINE_BORDER }}
-        >
-          <h2 className="scroll-reveal font-headline-md text-headline-md text-on-surface">
-            Selected Work
-          </h2>
-          <p className="scroll-reveal mt-4 font-meta-technical text-meta-technical text-mint-green">
-            [ 02_PROJECTS ]
-          </p>
-        </div>
-        <div className="col-span-4 flex flex-col gap-16 md:col-span-9 md:pl-8">
-          {projects.map((project, i) => (
-            <article
-              key={project.title}
-              className={`project-card spotlight-card scroll-reveal ${i > 0 ? `stagger-${Math.min(i, 4)}` : ""} group relative border border-hairline bg-surface-dark p-8 md:p-12`}
-              style={{ borderColor: HAIRLINE_BORDER }}
-            >
-              <span
-                aria-hidden
-                className="pointer-events-none absolute right-6 bottom-2 z-0 font-display-hero text-[7rem] leading-none text-on-surface opacity-[0.04] transition-opacity duration-500 select-none group-hover:opacity-[0.09] md:text-[10rem]"
-              >
-                {project.index}
-              </span>
-              <div className="absolute top-0 right-0 p-4">
-                <span className="font-meta-technical text-meta-technical text-on-surface-variant transition-colors group-hover:text-mint-green">
-                  [ {project.index} ]
-                </span>
-              </div>
-              <h3 className="mb-6 font-headline-lg text-headline-lg text-on-surface transition-colors group-hover:text-mint-green">
-                {project.title}
+      <h2 className="label gutter m-0 py-6">Projects</h2>
+      {projects.map((project, i) => {
+        const active = hover === i;
+        const open = touch || active;
+        return (
+          <a
+            key={project.name}
+            href={project.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            onMouseEnter={() => !touch && setHover(i)}
+            onFocus={() => setHover(i)}
+            onBlur={() => setHover(null)}
+            className={`gutter block cursor-pointer border-t border-rule pt-5 pb-7 transition-[background,color] duration-250 ${
+              active ? "bg-acc text-on-acc" : "bg-transparent text-ink"
+            }`}
+          >
+            <div className="flex flex-wrap items-end justify-between gap-x-6 gap-y-2">
+              <h3 className="display m-0 text-[clamp(64px,12.5vw,160px)] leading-[.85] tracking-[-.02em]">
+                {project.name}
               </h3>
-              <p className="relative z-10 mb-8 max-w-2xl font-body-md text-body-md text-on-surface-variant">
-                {project.description}
-              </p>
-              <div className="relative z-10 mb-8 flex flex-wrap gap-2">
-                {project.tags.map((tag) => (
-                  <span
-                    key={tag.label}
-                    className={`project-tag px-3 py-1 font-meta-technical text-meta-technical ${
-                      tag.primary
-                        ? "bg-mint-green-fill text-on-mint"
-                        : "border border-hairline-muted text-on-surface"
-                    }`}
-                  >
-                    {tag.label}
-                  </span>
-                ))}
+              <div className="label">
+                {project.no} — {project.skill}
               </div>
-              <a
-                className="link-fill-hover relative z-10 inline-flex items-center gap-2 font-label-caps text-label-caps text-on-surface"
-                href={project.href}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {project.linkLabel}{" "}
-                <span className="material-symbols-outlined text-[16px]">
-                  {project.icon}
-                </span>
-              </a>
-              <div className="absolute top-0 left-0 h-2 w-2 bg-mint-green opacity-0 transition-opacity group-hover:opacity-100" />
-              <div className="absolute right-0 bottom-0 h-2 w-2 bg-mint-green opacity-0 transition-opacity group-hover:opacity-100" />
-            </article>
-          ))}
-        </div>
-      </div>
+            </div>
+            {open && (
+              <div className="mt-7 flex flex-wrap gap-x-6 gap-y-4">
+                <p className="m-0 flex-[2_1_420px] text-xl leading-[1.4] text-pretty">
+                  {project.desc}
+                </p>
+                <p className="m-0 flex-[1_1_220px] text-base leading-[1.45]">
+                  {project.detail}
+                </p>
+                <p className="label m-0 flex-[0_1_200px] leading-[1.6]">
+                  {project.stack.join(" / ")}
+                </p>
+              </div>
+            )}
+          </a>
+        );
+      })}
     </section>
   );
 }

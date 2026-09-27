@@ -1,37 +1,20 @@
 import type { Metadata } from "next";
-import {
-  Instrument_Serif,
-  Pixelify_Sans,
-  Roboto_Serif,
-} from "next/font/google";
+import { Archivo } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import ThemeScript from "@/components/ThemeScript";
 import "./globals.css";
 
-const instrumentSerif = Instrument_Serif({
-  variable: "--font-instrument-serif",
+const archivo = Archivo({
+  variable: "--font-archivo",
   subsets: ["latin"],
-  weight: "400",
-  style: ["normal", "italic"],
-  display: "swap",
-});
-
-const robotoSerif = Roboto_Serif({
-  variable: "--font-roboto-serif",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const pixelifySans = Pixelify_Sans({
-  variable: "--font-pixelify-sans",
-  subsets: ["latin"],
+  axes: ["wdth"],
   display: "swap",
 });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://arnavprabhu.com"),
-  title: "Arnav Prabhu - Finance & AI",
+  title: "Arnav Prabhu — Finance & AI",
   description:
     "Finance and AI. Strategy, risk, and building with models.",
   manifest: "/site.webmanifest",
@@ -83,17 +66,13 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`scroll-smooth ${instrumentSerif.variable} ${robotoSerif.variable} ${pixelifySans.variable}`}
+      className={archivo.variable}
       suppressHydrationWarning
     >
       <head>
         <ThemeScript />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
-          rel="stylesheet"
-        />
       </head>
-      <body className="relative bg-surface-dark antialiased">
+      <body className="antialiased">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
