@@ -2,8 +2,6 @@
 
 # Arnav Prabhu | Personal Portfolio
 
-**A sleek, minimalist personal portfolio bridging finance, business analytics, and artificial intelligence.**
-
 <br />
 
 [![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white)](https://nextjs.org/)
