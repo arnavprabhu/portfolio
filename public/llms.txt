@@ -9,6 +9,7 @@ Arnav Prabhu is an undergraduate at UT Dallas pursuing dual B.S. degrees in Fina
 - **Axton** — AI-powered SEC filing intelligence platform with a RAG pipeline for 10-K, 10-Q, and 8-K filings. Built with Next.js, Supabase, and Gemini AI. https://axton.arnavprabhu.com
 - **pi-swarm** — Multi-agent orchestration framework built on pi.dev. Organizes AI agents into a 3-tier company hierarchy with 21 specialist roles. Model-agnostic with real-time cost tracking and a live terminal UI. https://github.com/arnavprabhu/pi-swarm
 - **Doxa** — AI-powered equity research pipeline coordinating six specialized agents across market data, valuation, SEC filings, sentiment, writing, and editorial review to produce high-signal reports. https://github.com/UnitedDiagram/Doxa
+- **Emulsion** — Browser-based 35mm film lab that turns phone photos into film scans with eight film stocks (Portra, Gold, Ektar, Superia, CineStill 800T, HP5), grain, halation and darkroom controls. Built with Vite, TypeScript, and WebGL2; runs entirely on-device. https://emulsion.arnavprabhu.com
 
 ## Expertise
 

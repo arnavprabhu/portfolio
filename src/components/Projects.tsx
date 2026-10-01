@@ -30,6 +30,15 @@ const projects = [
     detail: "",
     stack: ["Python"],
   },
+  {
+    no: "04",
+    name: "Emulsion",
+    skill: "Image Processing",
+    href: "https://emulsion.arnavprabhu.com",
+    desc: "A 35mm film lab in the browser. Drop in phone photos and they come back as film scans, with the grain, halation and soft highlights of real film stock.",
+    detail: "Live at emulsion.arnavprabhu.com. Everything develops on your device, so nothing gets uploaded.",
+    stack: ["Vite", "TypeScript", "WebGL2"],
+  },
 ];
 
 const TOUCH_QUERY = "(hover: none)";
