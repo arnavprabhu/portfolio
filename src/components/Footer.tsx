@@ -1,9 +1,6 @@
 import Link from "next/link";
+import { person } from "@/lib/content";
 
-const links = [
-  { href: "https://www.linkedin.com/in/arnavprabhu/", label: "LinkedIn" },
-  { href: "https://github.com/arnavprabhu", label: "GitHub" },
-];
 
 export default function Footer() {
   return (
@@ -12,7 +9,7 @@ export default function Footer() {
       className="gutter border-t-2 border-rule pt-[clamp(40px,6vw,48px)] pb-8"
     >
       <div className="label mb-4">Contact</div>
-      {links.map((link) => (
+      {person.links.map((link) => (
         <a
           key={link.label}
           href={link.href}

@@ -3,6 +3,8 @@ import { Archivo } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import ThemeScript from "@/components/ThemeScript";
+import { SITE_URL, person, projects } from "@/lib/content";
+import { siteJsonLd } from "@/lib/jsonld";
 import "./globals.css";
 
 const archivo = Archivo({
@@ -12,11 +14,48 @@ const archivo = Archivo({
   display: "swap",
 });
 
+const description =
+  "Arnav Prabhu builds applied AI for finance: RAG, multi-agent systems, LLM benchmarking and local inference. Finance and AI student at UT Dallas, open to roles.";
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://arnavprabhu.com"),
-  title: "Arnav Prabhu — Finance & AI",
-  description:
-    "Finance and AI. Strategy, risk, and building with models.",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: `${person.name} — Finance & AI`,
+    template: `%s | ${person.name}`,
+  },
+  description,
+  authors: [{ name: person.name, url: SITE_URL }],
+  creator: person.name,
+  keywords: [
+    person.name,
+    "applied AI",
+    "AI in finance",
+    "RAG",
+    "multi-agent systems",
+    "LLM benchmark",
+    "local LLM inference",
+    "UT Dallas",
+    ...projects.map((p) => p.name),
+  ],
+  alternates: {
+    canonical: "/",
+    types: { "text/markdown": "/llms.txt" },
+  },
+  openGraph: {
+    type: "profile",
+    url: "/",
+    siteName: person.name,
+    title: `${person.name} — Finance & AI`,
+    description,
+    locale: "en_US",
+    firstName: "Arnav",
+    lastName: "Prabhu",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${person.name} — Finance & AI`,
+    description,
+  },
   manifest: "/site.webmanifest",
   icons: {
     icon: [
@@ -28,34 +67,6 @@ export const metadata: Metadata = {
     shortcut: "/favicon.ico",
     apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
   },
-};
-
-const personJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Person",
-  name: "Arnav Prabhu",
-  jobTitle: "Applied AI Engineer",
-  description:
-    "Applied AI builder and finance student at UT Dallas. Builds RAG pipelines, multi-agent systems, and LLM applications grounded in finance and risk.",
-  url: "https://arnavprabhu.com",
-  image: "https://arnavprabhu.com/icon.png",
-  sameAs: [
-    "https://github.com/arnavprabhu",
-    "https://www.linkedin.com/in/arnavprabhu/",
-  ],
-  alumniOf: {
-    "@type": "CollegeOrUniversity",
-    name: "The University of Texas at Dallas",
-  },
-  knowsAbout: [
-    "Retrieval-Augmented Generation (RAG)",
-    "Multi-Agent Systems",
-    "LLM Applications",
-    "Machine Learning",
-    "Financial Modeling",
-    "Quantitative Analysis",
-    "Risk Management",
-  ],
 };
 
 export default function RootLayout({
@@ -75,7 +86,7 @@ export default function RootLayout({
       <body className="antialiased">
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(siteJsonLd) }}
         />
         {children}
         <Analytics />

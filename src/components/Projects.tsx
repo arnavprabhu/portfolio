@@ -1,45 +1,8 @@
 "use client";
 
+import Image from "next/image";
 import { useState, useSyncExternalStore } from "react";
-
-const projects = [
-  {
-    no: "01",
-    name: "Axton",
-    skill: "RAG Systems",
-    href: "https://axton.arnavprabhu.com",
-    desc: "A platform for analyzing SEC filings with AI. It uses a RAG pipeline to answer questions about 10-K, 10-Q and 8-K filings.",
-    detail: "Live at axton.arnavprabhu.com",
-    stack: ["Next.js", "Supabase", "Gemini"],
-  },
-  {
-    no: "02",
-    name: "pi-swarm",
-    skill: "Multi-Agent Orchestration",
-    href: "https://github.com/arnavprabhu/pi-swarm",
-    desc: "A framework for coordinating many AI agents, built on pi.dev. The agents are organized like a three-level company with 21 specialist roles.",
-    detail: "Works with any model, tracks cost in real time, has a live terminal UI.",
-    stack: ["Python"],
-  },
-  {
-    no: "03",
-    name: "Doxa",
-    skill: "Agentic Workflows",
-    href: "https://github.com/UnitedDiagram/Doxa",
-    desc: "A pipeline that writes equity research reports. Six specialist agents handle market data, valuation, SEC filings, sentiment, writing and editorial review.",
-    detail: "",
-    stack: ["Python"],
-  },
-  {
-    no: "04",
-    name: "Emulsion",
-    skill: "Image Processing",
-    href: "https://emulsion.arnavprabhu.com",
-    desc: "A 35mm film lab in the browser. Drop in phone photos and they come back as film scans, with the grain, halation and soft highlights of real film stock.",
-    detail: "Live at emulsion.arnavprabhu.com. Everything develops on your device, so nothing gets uploaded.",
-    stack: ["Vite", "TypeScript", "WebGL2"],
-  },
-];
+import { projects } from "@/lib/content";
 
 const TOUCH_QUERY = "(hover: none)";
 
@@ -68,16 +31,19 @@ export default function Projects() {
       {projects.map((project, i) => {
         const active = hover === i;
         const open = touch || active;
+        // Projects without a public link render as plain, focusable rows.
+        const Row = project.href ? "a" : "div";
+        const linkProps = project.href
+          ? { href: project.href, target: "_blank", rel: "noopener noreferrer" }
+          : { tabIndex: 0 };
         return (
-          <a
+          <Row
             key={project.name}
-            href={project.href}
-            target="_blank"
-            rel="noopener noreferrer"
+            {...linkProps}
             onMouseEnter={() => !touch && setHover(i)}
             onFocus={() => setHover(i)}
             onBlur={() => setHover(null)}
-            className={`gutter block cursor-pointer border-t border-rule pt-5 pb-7 transition-[background,color] duration-250 ${
+            className={`gutter block border-t ${project.href ? "cursor-pointer" : ""} border-rule pt-5 pb-7 transition-[background,color] duration-250 ${
               active ? "bg-acc text-on-acc" : "bg-transparent text-ink"
             }`}
           >
@@ -89,20 +55,51 @@ export default function Projects() {
                 {project.no} — {project.skill}
               </div>
             </div>
-            {open && (
-              <div className="mt-7 flex flex-wrap gap-x-6 gap-y-4">
-                <p className="m-0 flex-[2_1_420px] text-xl leading-[1.4] text-pretty">
-                  {project.desc}
-                </p>
-                <p className="m-0 flex-[1_1_220px] text-base leading-[1.45]">
-                  {project.detail}
-                </p>
-                <p className="label m-0 flex-[0_1_200px] leading-[1.6]">
-                  {project.stack.join(" / ")}
-                </p>
+            {/* Details stay in the HTML while collapsed, so crawlers and agents read every project. */}
+            <div
+              className={`grid transition-[grid-template-rows] duration-300 ${
+                open ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+              }`}
+            >
+              <div className="min-h-0 overflow-hidden">
+                <div className="mt-7 flex flex-wrap gap-x-6 gap-y-4">
+                  <p className="m-0 flex-[2_1_420px] text-xl leading-[1.4] text-pretty">
+                    {project.desc}
+                  </p>
+                  <p className="m-0 flex-[1_1_220px] text-base leading-[1.45]">
+                    {project.detail}
+                  </p>
+                  <p className="label m-0 flex-[0_1_200px] leading-[1.6]">
+                    {project.stack.join(" / ")}
+                  </p>
+                </div>
+                {project.charts && (
+                  <div className="mt-7 grid grid-cols-1 gap-6 md:grid-cols-2">
+                    {project.charts.map((chart) => (
+                      <div key={chart.light} className="border border-rule">
+                        <Image
+                          src={chart.light}
+                          alt={chart.alt}
+                          width={1600}
+                          height={1600}
+                          sizes="(min-width: 768px) 45vw, 100vw"
+                          className="theme-img-light block h-auto w-full"
+                        />
+                        <Image
+                          src={chart.dark}
+                          alt={chart.alt}
+                          width={1600}
+                          height={1600}
+                          sizes="(min-width: 768px) 45vw, 100vw"
+                          className="theme-img-dark block h-auto w-full"
+                        />
+                      </div>
+                    ))}
+                  </div>
+                )}
               </div>
-            )}
-          </a>
+            </div>
+          </Row>
         );
       })}
     </section>

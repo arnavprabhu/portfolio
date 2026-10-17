@@ -110,6 +110,17 @@
   display: none;
 }
 
+/* Images with a light and a dark version show the one for the current theme */
+.theme-img-dark {
+  display: none !important;
+}
+:root[data-theme="dark"] .theme-img-dark {
+  display: block !important;
+}
+:root[data-theme="dark"] .theme-img-light {
+  display: none !important;
+}
+
 /* Open-to-roles pulse */
 @keyframes pulse {
   0% {

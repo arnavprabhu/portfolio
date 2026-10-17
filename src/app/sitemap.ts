@@ -1,19 +1,10 @@
 import type { MetadataRoute } from "next";
+import { SITE_UPDATED, SITE_URL } from "@/lib/content";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base = "https://arnavprabhu.com";
   return [
-    {
-      url: base,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 1,
-    },
-    {
-      url: `${base}/privacy`,
-      lastModified: new Date(),
-      changeFrequency: "yearly",
-      priority: 0.2,
-    },
+    { url: SITE_URL, lastModified: SITE_UPDATED, changeFrequency: "monthly", priority: 1 },
+    { url: `${SITE_URL}/llms.txt`, lastModified: SITE_UPDATED, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${SITE_URL}/privacy`, lastModified: SITE_UPDATED, changeFrequency: "yearly", priority: 0.2 },
   ];
 }

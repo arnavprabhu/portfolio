@@ -1,9 +1,4 @@
-const capabilities = [
-  { title: "RAG Systems", proof: "Axton" },
-  { title: "Multi-Agent Orchestration", proof: "pi-swarm" },
-  { title: "Agentic Workflows", proof: "Doxa" },
-  { title: "Production Delivery", proof: "Next.js + Supabase + Gemini" },
-];
+import { capabilities } from "@/lib/content";
 
 export default function AppliedAI() {
   return (
@@ -11,7 +6,7 @@ export default function AppliedAI() {
       <h2 className="label m-0 mb-10">Applied AI</h2>
       <ol
         data-reveal
-        className="m-0 grid list-none grid-cols-[repeat(auto-fit,minmax(min(100%,220px),1fr))] gap-x-6 gap-y-8 p-0"
+        className="m-0 grid list-none grid-cols-[repeat(auto-fit,minmax(min(100%,220px),1fr))] gap-x-6 gap-y-8 p-0 lg:grid-cols-3"
       >
         {capabilities.map((capability, i) => (
           <li key={capability.title} className="border-t border-rule pt-4">

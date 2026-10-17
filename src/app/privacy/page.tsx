@@ -5,9 +5,10 @@ import PrivacyPolicyContent from "@/components/PrivacyPolicyContent";
 import SiteEffects from "@/components/SiteEffects";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | Arnav Prabhu",
+  title: "Privacy Policy",
   description:
     "How this portfolio site collects and uses limited visitor analytics.",
+  alternates: { canonical: "/privacy" },
 };
 
 export default function PrivacyPage() {
